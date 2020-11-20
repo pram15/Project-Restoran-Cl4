@@ -19,6 +19,10 @@
 
 <div class="row">
 
+    <div class="col-4">
+        <a class="btn btn-primary" href="<?= base_url('/admin/user/create') ?>"" role="button">TAMBAH DATA</a>
+    </div>
+
     <div class="col">
         <h3> <?= $judul; ?> </h3>
     </div>
@@ -33,34 +37,26 @@
 
             <tr>
                 <th>No</th>
-                <th>Pelanggan</th>
-                <th>Alamat</th>
-                <th>Telp</th>
+                <th>User</th>
                 <th>Email</th>
-                <th>Aksi</th>
+                <th>Level</th>
                 <th>Status</th>
+                <th>Aksi</th>
                 
             </tr>
             <?php $no ?>
-            <?php foreach($pelanggan as $key => $value): ?>
+            <?php foreach($user as $key => $value): ?>
             <tr>
                 <td><?= $no++ ?></td>
-                <td><?= $value['pelanggan'] ?></td>
-                <td><?= $value['alamat'] ?></td>
-                <td><?= $value['telp'] ?></td>
+                <td><?= $value['user'] ?></td>
                 <td><?= $value['email'] ?></td>
-                <td><a href="<?= base_url()?>/admin/pelanggan/delete/<?= $value['idpelanggan'] ?>"> 
-                    <img src="<?= base_url('/icon/can.svg')?>"> </a></td>
-                <?php 
-                    if ($value['aktif'] == 1) {
-                        $aktif="AKTIF";
-                    } else {
-                        $aktif="NONAKTIF";
-                    }
-                ?>
+                <td><?= $value['level'] ?></td>
+                <?php if($value['aktif']==1)$aktif="AKTIF"; else $aktif="BANNED"; ?>
                 <td>
-                    <a href="<?= base_url()?>/admin/pelanggan/update/<?= $value['idpelanggan']?>/<?= $value['aktif']?>"><?=$aktif?></a>
+                    <a href="<?= base_url()?>/admin/user/update/<?= $value['iduser']?>/<?= $value['aktif']?>"><?=$aktif?></a>
                 </td>
+                <td><a href="<?= base_url()?>/admin/user/delete/<?= $value['iduser'] ?>"> <img src="<?= base_url('/icon/can.svg')?>"> </a>
+                    <a href="<?= base_url()?>/admin/user/find/<?= $value['iduser'] ?>"> <img src="<?= base_url('/icon/pen.svg')?>"> </a></td>
             </tr>
             <?php endforeach; ?>
 

@@ -94,7 +94,7 @@ class Menu extends BaseController
 			return redirect()->to(base_url("/admin/menu/create"));
 		} else {
 			$file->move('./upload');
-		return redirect()->to(base_url("/admin/menu"));
+			return redirect()->to(base_url("/admin/menu"));
 		}
 		
 
