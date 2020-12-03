@@ -10,7 +10,8 @@ class Filters extends BaseConfig
 		'csrf'     => \CodeIgniter\Filters\CSRF::class,
 		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
 		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
-		'Auth' => \App\Filters\Auth::class
+		'Auth' => \App\Filters\Auth::class,
+		'Front'=>\App\Filters\Front::class,
 	];
 
 	// Always applied before every request
